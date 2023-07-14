@@ -64,7 +64,7 @@ export class TaskQueue {
   }
 
   private poke() {
-    if (!this.executing) {
+    // if (!this.executing) {
       const t = this.tasks.shift() || this.idle.shift();
       if (t) {
         this.executing = t;
@@ -74,7 +74,7 @@ export class TaskQueue {
           .catch(this.finished.bind(this));
         this.executing.execute();
       }
-    }
+    //}
   }
 
   private finished() {
